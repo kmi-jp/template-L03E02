@@ -13,5 +13,5 @@ from algebra.matrix import matrix_multiplication
         ),
     ],
 )
-def test_dot_product(matrix_1, matrix_2, expected):
+def test_matrix_multiplication(matrix_1, matrix_2, expected):
     assert matrix_multiplication(matrix_1, matrix_2) == expected

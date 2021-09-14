@@ -43,12 +43,12 @@ assert matrix_multiplication(matrix1, matrix2) == [[550, 168], [308, 86], [1308,
 ```
 
 ### Funkce `new_matrix(shape, fill)`
-Funkce `new_matrix(shape, fill)` vytvoří matici o rozměrech `shape` (`tuple`, například `(2, 4)`) a všechny prvky vyplní hodnotou `fill` (například, číslo `1.0`).
+Funkce `new_matrix(shape, fill)` vytvoří matici o rozměrech `shape` (`tuple`, například `(2, 4)`, 2 řádky, 4 sloupce) a všechny prvky vyplní hodnotou `fill` (například, číslo `1.0`).
 
 ```python
 from algebra.matrix import new_matrix
 
-matrix = new_matrix((2, 3), 1.0)
+matrix = new_matrix((3, 2), 1.0)
 
 assert matrix == [[1.0, 1.0], [1.0, 1.0], [1.0, 1.0]]
 

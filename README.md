@@ -60,7 +60,7 @@ assert matrix[1][0] == 1.0
 ```
 
 ### Funkce `submatrix(matrix, drop_rows, drop_columns)`
-Funkce `submatrix(matrix, drop_rows, drop_columns)` vrací [podmatici](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix) předané matice. Podmatice vznikne odebráním všech řádků na indexech uvedených v parametru `drop_rows`, obdobně potom pro sloupce v parametru `drop_columns`. Původní matici nemodifikujte!
+Funkce `submatrix(matrix, drop_rows, drop_columns)` vrací [podmatici](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix) předané matice. Podmatice vznikne odebráním všech řádků na indexech uvedených v parametru `drop_rows`, obdobně potom pro sloupce v parametru `drop_columns`. Výchozí hodnoty těchto argumentů jsou prázdné seznamy, v takovém případě dojde ke kopii předaného seznamu. Původní matici nemodifikujte!
 
 ```python
 from algebra.matrix import submatrix
@@ -71,7 +71,7 @@ matrix = [
     [100, 2, 3, 4]
 ]
 
-result = submatrix(matrix, [0, 1], [0])
+result = submatrix(matrix, drop_rows=[0, 1], drop_columns=[0])
 
 assert result == [[2, 3, 4]]
 assert matrix == [[1, -2, 5, 20], [0, 2, 3, 4], [100, 2, 3, 4]]
@@ -86,7 +86,7 @@ matrix = [
     [100, 2, 3, 4]
 ]
 
-result = submatrix(matrix, [], [0])
+result = submatrix(matrix, drop_columns=[0])
 
 assert result == [[-2, 5, 20], [2, 3, 4], [2, 3, 4]]
 assert matrix == [[1, -2, 5, 20], [0, 2, 3, 4], [100, 2, 3, 4]]
@@ -103,9 +103,26 @@ matrix = [
     [100, 2, 3, 4]
 ]
 
-result = submatrix(matrix, [0, 1, 2], [])
+result = submatrix(matrix, drop_rows=[0, 1, 2])
 
 assert result == []
 assert matrix == [[1, -2, 5, 20], [0, 2, 3, 4], [100, 2, 3, 4]]
+```
+
+Kopie matice:
+
+```python
+from algebra.matrix import submatrix
+
+matrix = [
+    [1, -2, 5, 20],
+    [0, 2, 3, 4],
+    [100, 2, 3, 4]
+]
+
+result = submatrix(matrix)
+
+assert result == matrix
+assert id(result) != id(matrix)
 ```
 

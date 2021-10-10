@@ -60,7 +60,7 @@ assert matrix[1][0] == 1.0
 ```
 
 ### Funkce `submatrix(matrix, drop_rows, drop_columns)`
-Funkce `submatrix(matrix, drop_rows, drop_columns)` vrací [podmatici](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix) předané matice. Podmatice vznikne odebráním všech řádků na indexech uvedených v parametru `drop_rows`, obdobně potom pro sloupce v parametru `drop_columns`. Výchozí hodnoty těchto argumentů jsou prázdné seznamy, v takovém případě dojde ke kopii předaného seznamu. Původní matici nemodifikujte!
+Funkce `submatrix(matrix, drop_rows, drop_columns)` vrací [podmatici](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix) předané matice (pozor je nutné vytvořit matici novou, nikoli modifikovat matici předanou). Podmatice vznikne odebráním všech řádků na indexech uvedených v parametru `drop_rows`, obdobně potom pro sloupce v parametru `drop_columns`. Výchozí hodnoty těchto argumentů jsou prázdné seznamy, v takovém případě dojde ke kopii předaného seznamu. Původní matici nemodifikujte!
 
 ```python
 from algebra.matrix import submatrix

@@ -2,6 +2,7 @@ import pytest
 
 from algebra.vector import dot_product
 
+
 @pytest.mark.parametrize(
     "vector_1,vector_2,expected",
     [
@@ -10,4 +11,8 @@ from algebra.vector import dot_product
     ],
 )
 def test_dot_product(vector_1, vector_2, expected):
-    assert dot_product(vector_1, vector_2) == expected
+    assert dot_product(vector_1=vector_1, vector_2=vector_2) == expected
+
+
+def test_docstrings():
+    assert dot_product.__doc__ is not None

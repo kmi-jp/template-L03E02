@@ -1,6 +1,6 @@
 import pytest
 
-from algebra.matrix import new_matrix
+from algebra.matrix import matrix
 
 
 @pytest.mark.parametrize(
@@ -11,5 +11,9 @@ from algebra.matrix import new_matrix
         ((2, 3), 0.0, [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]),
     ],
 )
-def test_new_matrix(shape, fill, expected):
-    assert new_matrix(shape, fill) == expected
+def test_matrix(shape, fill, expected):
+    assert matrix(shape=shape, fill=fill) == expected
+
+
+def test_docstrings():
+    assert matrix.__doc__ is not None

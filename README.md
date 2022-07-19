@@ -1,5 +1,5 @@
 # L03E02: Algebra package
-Vytvořte balíček `argebra` obsahující dva moduly `matrix.py` a `vector.py`.
+Vytvořte balíček `argebra` obsahující dva moduly `matrix.py` a `vector.py`. **Nezapomínejte na docstring u funkcí.**
 
 ## Modul `vector.py`
 Modul `vector.py` obsahuje funkci `dot_product(vector_1, vector_2)`, která počítá [skalární součin](https://www.matweb.cz/skalarni-soucin) dvou stejně dlouhých vektorů (vektor reprezentujeme jako seznam).
@@ -16,7 +16,7 @@ assert dot_product(vector_1, vector_2) == 10
 ```
 
 ## Modul `matrix.py`
-Modul `matrix.py` obsahuje funkce `matrix_multiplication(matrix_1, matrix_2)`, `new_matrix(shape)`a `submatrix(matrix, rows_id, columns_id)`.
+Modul `matrix.py` obsahuje funkce `matrix_multiplication(matrix_1, matrix_2)`, `matrix(shape)`a `submatrix(matrix, rows_id, columns_id)`.
 
 ### Funkce `matrix_multiplication(matrix_1, matrix_2)`
 Funkce `matrix_multiplication(matrix_1, matrix_2)` vykonává [násobení dvou matic](https://cs.wikipedia.org/wiki/Násoben%C3%AD_matic). V implementaci využíjte funkci `algebra.vector.dot_product()`. Matice můžete reprezentovat jako seznam (mutovatelnost se nám již hodí).
@@ -42,25 +42,27 @@ matrix_2 = [
 assert matrix_multiplication(matrix1, matrix2) == [[550, 168], [308, 86], [1308, -114]]
 ```
 
-### Funkce `new_matrix(shape, fill)`
-Funkce `new_matrix(shape, fill)` vytvoří matici o rozměrech `shape` (`tuple`, například `(2, 4)`, 2 řádky, 4 sloupce) a všechny prvky vyplní hodnotou `fill` (například, číslo `1.0`).
+### Funkce `matrix(shape, fill)`
+Funkce `matrix(shape, fill)` vytvoří matici o rozměrech `shape` (`tuple`, například `(2, 4)`, 2 řádky, 4 sloupce) a všechny prvky vyplní hodnotou `fill` (například, číslo `1.0`).
 
 ```python
-from algebra.matrix import new_matrix
+from algebra.matrix import matrix
 
-matrix = new_matrix((3, 2), 1.0)
+matrix_1 = matrix((3, 2), 1.0)
 
-assert matrix == [[1.0, 1.0], [1.0, 1.0], [1.0, 1.0]]
+assert matrix_1 == [[1.0, 1.0], [1.0, 1.0], [1.0, 1.0]]
 
 # opatrně, musí změnit hodnotu pouze na indexu 0,0 nikoli nikde jinde!
-matrix[0][0] = 0.0
+matrix_1[0][0] = 0.0
 
-assert matrix[0][0] == 0
-assert matrix[1][0] == 1.0
+assert matrix_1[0][0] == 0
+assert matrix_1[1][0] == 1.0
 ```
 
 ### Funkce `submatrix(matrix, drop_rows, drop_columns)`
 Funkce `submatrix(matrix, drop_rows, drop_columns)` vrací [podmatici](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix) předané matice (pozor je nutné vytvořit matici novou, nikoli modifikovat matici předanou). Podmatice vznikne odebráním všech řádků na indexech uvedených v parametru `drop_rows`, obdobně potom pro sloupce v parametru `drop_columns`. Výchozí hodnoty těchto argumentů jsou prázdné seznamy, v takovém případě dojde ke kopii předaného seznamu. Původní matici nemodifikujte!
+
+Pokud bude `submatrix` voláno bez `drop_rows` a `drop_columns` vznikne nová matice se stejným obsahem jako byl argument `matrix` (nepoužívejte `copy()`).
 
 ```python
 from algebra.matrix import submatrix
@@ -126,3 +128,9 @@ assert result == matrix
 assert id(result) != id(matrix)
 ```
 
+## Lokální testování
+Funkčnost řešení ověříte následujícím příkazem:
+
+```bash
+pytest
+```

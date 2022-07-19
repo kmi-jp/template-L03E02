@@ -13,12 +13,17 @@ from algebra.matrix import submatrix
     ],
 )
 def test_submatrix(matrix, drop_rows, drop_columns, expected):
-    assert submatrix(matrix, drop_rows, drop_columns) == expected
+    assert (
+        submatrix(matrix=matrix, drop_rows=drop_rows, drop_columns=drop_columns)
+        == expected
+    )
 
 
-def test_submatrix_identity():
-    matrix = [[1, 2, 3], [1, 2, 3]]
+def test_submatrix_without_args():
+    assert id(submatrix(matrix=[[1, 2, 3], [1, 2, 3]])) != id(
+        submatrix(matrix=[[1, 2, 3], [1, 2, 3]])
+    )
 
-    result = submatrix(matrix, [], [])
 
-    assert matrix is not result
+def test_docstrings():
+    assert submatrix.__doc__ is not None

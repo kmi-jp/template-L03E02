@@ -1,5 +1,5 @@
 # L03E02: Algebra package
-Vytvořte balíček `argebra` obsahující dva moduly `matrix.py` a `vector.py`. **Nezapomínejte na docstring u funkcí.**
+Vytvořte balíček `algebra` obsahující dva moduly `matrix.py` a `vector.py`. **Nezapomínejte na docstring u funkcí.**
 
 ## Modul `vector.py`
 Modul `vector.py` obsahuje funkci `dot_product(vector_1, vector_2)`, která počítá [skalární součin](https://www.matweb.cz/skalarni-soucin) dvou stejně dlouhých vektorů (vektor reprezentujeme jako seznam).
